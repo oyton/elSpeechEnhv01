@@ -4,14 +4,14 @@
 % yalin el sesi
 % 9.0 - 11.7s & 20.6 - 23.6s
 [sub01data,fs01] = wavread(...
-'../../../../data/electrolarynx_01/signed16bit/BB01_04_electrolarynxSpeech.wav');
+'./BB01_04_electrolarynxSpeech.wav');
 noiSub01Markers = [9.0 11.7; 20.6 23.6]; 
 % [gurultubasi1 gurultusonu1; gurultubasi2 gurultusonu2]
 % MO01_04_electrolarynxDpeech.wav 
 % yalin el sesi
 % 9.20 - 9.60s & 16.9 - 17.3s
 [sub02data,fs02] = wavread(...
-'../../../../data/electrolarynx_01/signed16bit/MO01_04_electrolarynxSpeech.wav');
+'./MO01_04_electrolarynxSpeech.wav');
 noiSub02Markers = [9.2 9.6; 16.9 17.3]; 
 % [gurultubasi1 gurultusonu1; gurultubasi2 gurultusonu2]
 
