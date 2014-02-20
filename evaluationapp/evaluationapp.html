@@ -1,0 +1,61 @@
+<head>
+  <title>Signal Quality Assesment Application</title>
+  <link href="packages/bootstrap-3/bootstrap-3/css/bootstrap.css" rel="stylesheet">
+</head>
+
+<body>
+  
+  {{> hello}}
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="packages/bootstrap-3/bootstrap-3/js/bootstrap.js"></script>
+</body>
+
+<template name="hello">
+<div class="container">
+      <div class="header">
+        <ul class="nav nav-pills pull-right">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <h3 class="text-muted">Signal Quality Assessment Application</h3>
+      </div>
+
+      <div class="jumbotron">
+        <h1>EL Speech Enhancement</h1>
+        <p class="lead">This application is built to gather Opinion Score for outputs of the signal processing project "Speech Coding System for Total Laryngectomees". By assigning liable scores to the outputs you contribute to a study which aims to provide better social life to laryngectomees.</p>
+        <p><a class="btn btn-lg btn-success" href="https://github.com/oyton/elSpeechEnhv01" role="button" target="_blank">Source</a></p>
+      </div>
+
+      <div class="row">
+          <div class="col-md-6">
+              <iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/24017274&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_artwork=true"></iframe> 
+          </div>
+          <div class="col-md-4">
+              <p>notes</p>
+              <textarea name="notes" id="notes" cols="70" rows="20"></textarea>
+          </div>
+      </div> 
+      <div class="row">
+        {{> voter}}          
+      </div>
+      <div class="footer">
+        <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Speech Coding System for Total Laryngectomees</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/oyton/elSpeechEnhv01" property="cc:attributionName" rel="cc:attributionURL">Speech Enhancement for Electrolarynx</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/deed.en_US">Creative Commons Attribution 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/oyton/elSpeechEnhv01" rel="dct:source">https://github.com/oyton/elSpeechEnhv01</a>
+        </p>
+      </div>
+
+    </div>
+</template>
+
+<template name="voter">
+    {{#each algorithms}}
+        {{> algorithm}}
+    {{\each}} 
+</template>
+<template name="algorithm">
+    <div class="col-md-1">
+        <h3>{{name}}</h3>
+        <span class="score">
+    </div>
+</template>
