@@ -14,13 +14,17 @@ if (Meteor.isClient) {
       var value6 = $( "input[name='optionsRadios6']:checked" ).attr('value');
       var value7 = $( "input[name='optionsRadios7']:checked" ).attr('value');
 
+      if (value1 ==undefined || value2 ==undefined || value3 ==undefined || value4 ==undefined || value5 ==undefined || value6 ==undefined || value7 ==undefined){
+        $(".alert-danger").show().delay(2000).hide(2000);
+      }
+      else{
 
+        Meteor.call('vote', value1, value2, value3, value4, value5, value6, value7);
 
-      Meteor.call('vote', value1, value2, value3, value4, value5, value6, value7);
+        $( "input:checked" ).prop('checked',false);
 
-      $( "input:checked" ).prop('checked',false);
-
-      $(".alert").show().delay(2000).hide(1000);
+        $(".alert-success").show().delay(2000).hide(2000);
+      }
 
 
     }
