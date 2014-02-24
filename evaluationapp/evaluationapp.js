@@ -1,30 +1,30 @@
 Votes = new Meteor.Collection('votes'); // create a collection
 
-
 if (Meteor.isClient) {
-
 
   Template.hello.events({
     'click button#submit' : function () {
+
       // get the values of the checked button when pressed submit
-      var value1 = $( "input[name='optionsRadios1']:checked" ).attr('value');
-      var value2 = $( "input[name='optionsRadios2']:checked" ).attr('value');
-      var value3 = $( "input[name='optionsRadios3']:checked" ).attr('value');
-      var value4 = $( "input[name='optionsRadios4']:checked" ).attr('value');
-      var value5 = $( "input[name='optionsRadios5']:checked" ).attr('value');
-      var value6 = $( "input[name='optionsRadios6']:checked" ).attr('value');
-      var value7 = $( "input[name='optionsRadios7']:checked" ).attr('value');
+      var value1 = $('input[name="optionsRadios1"]:checked').attr('value');
+      var value2 = $('input[name="optionsRadios2"]:checked').attr('value');
+      var value3 = $('input[name="optionsRadios3"]:checked').attr('value');
+      var value4 = $('input[name="optionsRadios4"]:checked').attr('value');
+      var value5 = $('input[name="optionsRadios5"]:checked').attr('value');
+      var value6 = $('input[name="optionsRadios6"]:checked').attr('value');
+      var value7 = $('input[name="optionsRadios7"]:checked').attr('value');
+
       // if any of the radioboxes not checked raise an error
-      if (value1 ==undefined || value2 ==undefined || value3 ==undefined || value4 ==undefined || value5 ==undefined || value6 ==undefined || value7 ==undefined){
-        $(".alert-danger").show().delay(2000).hide(2000); // show warning
+      if ( value1 && value2 && value3 && value4 && value5 && value6 && value7 ) {
+        Meteor.call('vote',
+          value1, value2, value3, value4, value5, value6, value7
+        ); // call vote function
+        $( 'input:checked' ).prop('checked',false); // clear the inputs
+        $('.alert-success').show().
+          delay(2000).hide(2000); // show success message
+      } else {
+        $('.alert-danger').show().delay(2000).hide(2000);  // show warning
       }
-      else{
-        Meteor.call('vote', value1, value2, value3, value4, value5, value6, value7); // call vote function
-        $( "input:checked" ).prop('checked',false); // clear the inputs
-        $(".alert-success").show().delay(2000).hide(2000); // show success message
-      }
-
-
     }
   });
 }
@@ -43,3 +43,4 @@ if (Meteor.isServer){
     }
   });
 }
+console.log("lol");
